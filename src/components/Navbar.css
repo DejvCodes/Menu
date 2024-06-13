@@ -1,0 +1,105 @@
+/* Do 700px  */
+nav {
+  background: #141414;
+}
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 20px;
+}
+.nav-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+}
+.nav-header img {
+  width: 110px;
+  margin-left: 30px;
+}
+.nav-header button {
+  display: none;
+}
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.nav-list ul {
+  margin-right: 30px;
+}
+.nav-list ul li {
+  display: inline-block;
+  margin-left: 30px;
+}
+.nav-list a {
+  position: relative;
+  font-size: 20px;
+  text-decoration: none;
+  color: #e5e5e5;
+}
+.nav-list a::after {
+  position: absolute;
+  content: "";
+  width: 110%;
+  height: 2px;
+  background: #e51409;
+  left: -3px;
+  bottom: -3px;
+  transition: opacity 0.25s linear;
+  opacity: 0;
+}
+.nav-list a:hover:after {
+  opacity: 1;
+}
+
+/* Od 700px a méně */
+@media screen and (max-width: 700px) {
+  .navigation {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-inline: 0;
+  }
+  .nav-header {
+    width: 100%;
+  }
+  .nav-header button {
+    display: block;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+  .hamburger-icon {
+    font-size: 30px;
+    color: #e5e5e5;
+    margin-right: 30px;
+    transition: all 0.4s;
+  }
+  .hamburger-icon:hover {
+    color: #e51409;
+  }
+  .nav-list ul {
+    padding: 0;
+  }
+  .nav-list ul li {
+    width: 100%;
+    padding: 10px 5px;
+  }
+
+  /* Classy pro použití v Reactu */
+  .hide {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.25s linear;
+  }
+  .show {
+    height: 180px;
+    overflow: hidden;
+    transition: all 0.25s linear;
+  }
+}
